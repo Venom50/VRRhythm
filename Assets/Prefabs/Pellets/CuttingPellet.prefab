@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8113850529339963648}
   - component: {fileID: 8773487937911436671}
   - component: {fileID: 961802583932882568}
-  m_Layer: 0
+  - component: {fileID: 4102092369864082067}
+  m_Layer: 8
   m_Name: CuttingPellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501896417822834834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.11, z: 6.05}
-  m_LocalScale: {x: 0.33539593, y: 1.5035, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.124173015, y: 0.556638, z: 0.37022814}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,5 +94,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 0.2, z: 13}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4102092369864082067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501896417822834834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b501e99f6b1a94b895c34dc70f65d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
