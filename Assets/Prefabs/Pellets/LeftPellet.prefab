@@ -111,6 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBeBlocked: 0
+  currentScore: 0
+  pointsPerNote: 100
+  scoreText: {fileID: 1998294879931659939, guid: 16098041a50cc6e43a65c24bfb040a10, type: 3}
 --- !u!114 &-6667639461908562046
 MonoBehaviour:
   m_ObjectHideFlags: 0

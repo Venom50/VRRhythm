@@ -14579,3 +14579,4 @@ MonoBehaviour:
   cuttingPelletLayer:
     serializedVersion: 2
     m_Bits: 256
+  pelletHit: 0
