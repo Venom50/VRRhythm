@@ -2,22 +2,37 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PointsManager : MonoBehaviour
 {
     public TMP_Text scoreText;
+    public TMP_Text multiplierText;
     public GameObject sword;
+    public GameObject resetZone;
 
     private bool oneTime = false;
 
     //private Sword swordComponent;
+    private ResetZone resetZoneComponent;
 
-    public int currentScore = 0;
-    public int multiplier = 1;
+    public int currentScore;
     public int pointsPerPellet = 100;
+
+    public int multiplier;
+    public int multiplierTracker;
+    public int[] multiplierThresholds;
+    
     void Start()
     {
         //swordComponent = sword.GetComponent<Sword>();
+        resetZoneComponent = resetZone.GetComponent<ResetZone>();
+
+        currentScore = 0;
+        multiplier = 1;
+
+        scoreText.text = "0";
+        multiplierText.text = "1x";
     }
 
     // Update is called once per frame
@@ -27,11 +42,39 @@ public class PointsManager : MonoBehaviour
         {
             if (!oneTime)
             {
-                currentScore += 100;
+                if (multiplierThresholds.Length > multiplier - 1)
+                {
+                    multiplierTracker++;
+
+                    if (multiplierTracker >= multiplierThresholds[multiplier - 1])
+                    {
+                        multiplierTracker = 0;
+                        multiplier++;
+
+                        multiplierText.text = multiplier.ToString() + "x";
+                    }
+                }
+
+                currentScore += 100 * multiplier;
                 scoreText.text = currentScore.ToString();
+
                 oneTime = true;
+
                 StartCoroutine(ChangeOneTimeValue());
             }
+        }
+
+        PelletMissed();
+    }
+
+    public void PelletMissed()
+    {
+        if(resetZoneComponent.pelletMissed)
+        {
+            multiplier = 1;
+            multiplierTracker = 0;
+
+            multiplierText.text = multiplier.ToString() + "x";
         }
     }
 

@@ -666,6 +666,7 @@ GameObject:
   - component: {fileID: 127578748}
   - component: {fileID: 127578747}
   - component: {fileID: 127578746}
+  - component: {fileID: 127578749}
   m_Layer: 0
   m_Name: ResetZone
   m_TagString: ResetZone
@@ -710,12 +711,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127578745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.845, z: 0.85}
+  m_LocalPosition: {x: 0, y: 0.768, z: 0.85}
   m_LocalScale: {x: 1.2476, y: 1.2476, z: 1.2476}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &127578749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127578745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f98191de4ae254caf032fcbfe03347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pelletMissed: 0
 --- !u!1 &195624453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,10 +1705,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 101571189}
+  multiplierText: {fileID: 98312127}
   sword: {fileID: 1189674227078662, guid: ec413a0fd2a940f4d9475a8299d85f9c, type: 3}
+  resetZone: {fileID: 127578745}
   currentScore: 0
-  multiplier: 1
   pointsPerPellet: 100
+  multiplier: 1
+  multiplierTracker: 0
+  multiplierThresholds: 020000000300000004000000080000000c00000010000000
 --- !u!1 &1583467509
 GameObject:
   m_ObjectHideFlags: 0
