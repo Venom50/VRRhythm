@@ -11,18 +11,20 @@ public class PointsManager : MonoBehaviour
     public GameObject sword;
     public GameObject resetZone;
 
+    public int currentScore;
+    public int pointsPerPellet = 100;
+    public int totalHits = 0;
+    public int totalMisses = 0;
+
+    public int multiplier;
+    public int multiplierTracker;
+    public int[] multiplierThresholds;
+
     private bool oneTime = false;
 
     //private Sword swordComponent;
     private ResetZone resetZoneComponent;
 
-    public int currentScore;
-    public int pointsPerPellet = 100;
-
-    public int multiplier;
-    public int multiplierTracker;
-    public int[] multiplierThresholds;
-    
     void Start()
     {
         //swordComponent = sword.GetComponent<Sword>();
@@ -56,6 +58,7 @@ public class PointsManager : MonoBehaviour
                 }
 
                 currentScore += 100 * multiplier;
+                totalHits++;
                 scoreText.text = currentScore.ToString();
 
                 oneTime = true;
@@ -73,6 +76,7 @@ public class PointsManager : MonoBehaviour
         {
             multiplier = 1;
             multiplierTracker = 0;
+            totalMisses++;
 
             multiplierText.text = multiplier.ToString() + "x";
         }

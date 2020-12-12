@@ -5,6 +5,8 @@ using UnityEngine;
 public class ResetZone : MonoBehaviour
 {
     public bool pelletMissed = false;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class ResetZone : MonoBehaviour
         if (other.tag == "Pellet")
         {
             pelletMissed = true;
+
             Debug.Log("Missed");
 
             Destroy(other.gameObject);
