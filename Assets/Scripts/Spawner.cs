@@ -7,9 +7,12 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Spawner : MonoBehaviour
 {
     public GameObject cuttingPelletObject;
+    public GameObject dodgePelletObject;
     public GameObject pointsManager;
     public AudioSource audioSource;
     public Transform cuttingPelletPoint;
+    public Transform dodgeLeftPelletPoint;
+    public Transform dodgeRightPelletPoint;
     public GameObject[] pellets;
 
     // 0 - left; 1 - up; 2 - right
@@ -32,11 +35,14 @@ public class Spawner : MonoBehaviour
 
     private float timer;
     private float cutTimer;
+    private float dodgeTimer;
     private bool results = false;
 
     // 0 - leftPellet; 1 - upperPellet; 2 - rightPellet
     private int randomPellet;
     private int randomTimeCut = 15;
+    private int randomTimeDodge = 30;
+    private int randomDodge;
     private bool isSpawningPellets = true;
 
     // Start is called before the first frame update
@@ -94,6 +100,29 @@ public class Spawner : MonoBehaviour
             randomTimeCut = Random.Range(5, 10);
         }
 
+        if(dodgeTimer > beat * randomTimeDodge && !results && isSpawningPellets)
+        {
+            randomDodge = Random.Range(0, 2);
+            if(randomDodge == 0)
+            {
+                GameObject dodgePellet = Instantiate(dodgePelletObject, dodgeLeftPelletPoint);
+                dodgePellet.transform.localPosition = Vector3.zero;
+                dodgePellet.transform.Rotate(transform.forward, 30);
+
+                dodgeTimer -= beat * randomTimeDodge;
+                randomTimeDodge = Random.Range(20, 30);
+            }
+            else if(randomDodge == 1)
+            {
+                GameObject dodgePellet = Instantiate(dodgePelletObject, dodgeRightPelletPoint);
+                dodgePellet.transform.localPosition = Vector3.zero;
+                dodgePellet.transform.Rotate(transform.forward, -30);
+
+                dodgeTimer -= beat * randomTimeDodge;
+                randomTimeDodge = Random.Range(20, 30);
+            }
+        }
+
         if(!audioSource.isPlaying && !resultsScreen.activeInHierarchy)
         {
             hitsText.text = pointsManagerComponent.totalHits.ToString();
@@ -110,6 +139,6 @@ public class Spawner : MonoBehaviour
 
         timer += Time.deltaTime;
         cutTimer += Time.deltaTime;
-        
+        dodgeTimer += Time.deltaTime;
     }
 }

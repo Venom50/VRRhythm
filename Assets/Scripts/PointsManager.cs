@@ -10,6 +10,7 @@ public class PointsManager : MonoBehaviour
     public TMP_Text multiplierText;
     public GameObject sword;
     public GameObject resetZone;
+    public GameObject headFollow;
 
     public int currentScore;
     public int pointsPerPellet = 100;
@@ -24,11 +25,13 @@ public class PointsManager : MonoBehaviour
 
     //private Sword swordComponent;
     private ResetZone resetZoneComponent;
+    private HeadFollow headFollowComponent;
 
     void Start()
     {
         //swordComponent = sword.GetComponent<Sword>();
         resetZoneComponent = resetZone.GetComponent<ResetZone>();
+        headFollowComponent = headFollow.GetComponent<HeadFollow>();
 
         currentScore = 0;
         multiplier = 1;
@@ -68,6 +71,7 @@ public class PointsManager : MonoBehaviour
         }
 
         PelletMissed();
+        DodgeHit();
     }
 
     public void PelletMissed()
@@ -77,6 +81,17 @@ public class PointsManager : MonoBehaviour
             multiplier = 1;
             multiplierTracker = 0;
             totalMisses++;
+
+            multiplierText.text = multiplier.ToString() + "x";
+        }
+    }
+
+    public void DodgeHit()
+    {
+        if(headFollowComponent.pelletHit)
+        {
+            multiplier = 1;
+            multiplierTracker = 0;
 
             multiplierText.text = multiplier.ToString() + "x";
         }
