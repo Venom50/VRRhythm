@@ -80,7 +80,7 @@ public class PointsManager : MonoBehaviour
         {
             multiplier = 1;
             multiplierTracker = 0;
-            totalMisses++;
+            totalMisses = resetZoneComponent.missed;
 
             multiplierText.text = multiplier.ToString() + "x";
         }
