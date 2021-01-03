@@ -22,7 +22,7 @@ public class Sword : MonoBehaviour
         RaycastHit hit;
         //Rigidbody rb = GetComponent<Rigidbody>();
         //Vector3 velocity = rb.velocity;
-        if (Physics.Raycast(transform.position, transform.up, out hit, 1, cuttingPelletLayer))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 1, cuttingPelletLayer))
         {
             //  
             //  && velocity.magnitude >= enoughSpeed

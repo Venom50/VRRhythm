@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c789b487504a274d89705a1420abcdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 1189674227078662, guid: ec413a0fd2a940f4d9475a8299d85f9c, type: 3}
+  swordPrefab: {fileID: 2216583910747672377, guid: 47b266d4b23fa65468073bf6508d56e0, type: 3}

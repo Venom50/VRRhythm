@@ -2034,7 +2034,7 @@ Transform:
   - {fileID: 1029746213}
   - {fileID: 1338273058}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983503314 stripped
 GameObject:
@@ -3195,7 +3195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 101571189}
   multiplierText: {fileID: 98312127}
-  sword: {fileID: 1189674227078662, guid: ec413a0fd2a940f4d9475a8299d85f9c, type: 3}
+  sword: {fileID: 2216583910747672377, guid: 47b266d4b23fa65468073bf6508d56e0, type: 3}
   resetZone: {fileID: 127578745}
   headFollow: {fileID: 108061949}
   currentScore: 0
@@ -3795,7 +3795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abf0ea064608d8e48872a31fb4b217f4, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abf0ea064608d8e48872a31fb4b217f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
