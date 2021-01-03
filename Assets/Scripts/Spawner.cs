@@ -44,7 +44,8 @@ public class Spawner : MonoBehaviour
     private int randomTimeCut = 15;
     private int randomTimeDodge = 30;
     private int randomDodge;
-    private bool isSpawningPellets = true;
+    public bool isSpawningPellets = true;
+    public bool isDodgeSpawned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -122,6 +123,8 @@ public class Spawner : MonoBehaviour
                 dodgeTimer -= beat * randomTimeDodge;
                 randomTimeDodge = Random.Range(20, 30);
             }
+            isDodgeSpawned = true;
+            StartCoroutine(SwitchDodgeBoolToFalse());
         }
 
         if(!audioSource.isPlaying && !resultsScreen.activeInHierarchy)
@@ -148,5 +151,11 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(15f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    IEnumerator SwitchDodgeBoolToFalse()
+    {
+        yield return new WaitForSeconds(0.3f);
+        isDodgeSpawned = false;
     }
 }

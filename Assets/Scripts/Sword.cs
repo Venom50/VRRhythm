@@ -8,6 +8,7 @@ public class Sword : MonoBehaviour
     private Vector3 previousPos;
 
     public static bool pelletHit = false;
+    public static bool cuttingPelletHit = false;
     //private float enoughSpeed = 0.1f;
 
     // Start is called before the first frame update
@@ -28,8 +29,10 @@ public class Sword : MonoBehaviour
             if (Vector3.Angle(transform.position - previousPos, hit.transform.up) > 130 || Vector3.Angle(transform.position - previousPos, -hit.transform.up) > 130)
             {
                 pelletHit = true;
+                cuttingPelletHit = true;
                 Destroy(hit.transform.gameObject);
                 StartCoroutine(ChangeHitValue());
+                StartCoroutine(SwitchCuttingPelletHitToFalse());
             }
         }
         previousPos = transform.position;
@@ -53,5 +56,11 @@ public class Sword : MonoBehaviour
     {
         yield return new WaitForSeconds(0.0000001f);
         pelletHit = false;
+    }
+
+    IEnumerator SwitchCuttingPelletHitToFalse()
+    {
+        yield return new WaitForSeconds(0.1f);
+        cuttingPelletHit = false;
     }
 }
