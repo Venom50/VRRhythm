@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {
@@ -135,10 +136,17 @@ public class Spawner : MonoBehaviour
             uiScreen.SetActive(false);
             resultsScreen.SetActive(true);
             results = true;
+            StartCoroutine(LoadMenuScene());
         }
 
         timer += Time.deltaTime;
         cutTimer += Time.deltaTime;
         dodgeTimer += Time.deltaTime;
+    }
+
+    IEnumerator LoadMenuScene()
+    {
+        yield return new WaitForSeconds(15f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
